@@ -24,6 +24,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <ListBook
+      books={this.state.books}
       />
     )
   }
