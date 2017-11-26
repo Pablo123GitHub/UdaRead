@@ -11,30 +11,31 @@ class ListBook extends Component {
   constructor(props){
      super(props);
      this.state = {
-title: ""
+shelf: "what"
      };
    }
 
   render() {
 const { books } = this.props
-let showingBooks = books
+
+const {shelf} = this.state
+
+let  showingBooks = books.filter((book) => book
+)
     return (
     <div>
 
     <div className="bookshelf">
-      <h2 className="bookshelf-title">Want to Read</h2>
+      <h2 className="bookshelf-title">{this.props.shelf}</h2>
 <div className="bookshelf-books">
 <div>
 <ol className="books-grid">
     {showingBooks.map((book) => (
-
         <li key = {book.id}>
-{console.log({book})}
         <Book
           title = {book.title}
           authors = {book.authors}
           imageBackground = {book.imageLinks.smallThumbnail}
-          shelf = {book.shelf}
         />
     </li>
 

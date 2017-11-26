@@ -8,16 +8,13 @@ import * as BooksAPI from './BooksAPI'
 class Book extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        shelf: "testing"
-      }
           this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event){
-      this.setState({value: event.target.value});
-    }
+      this.setState({shelf: event.target.value});
 
+    }
 
 render() {
   return (
@@ -26,7 +23,7 @@ render() {
         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageBackground})` }}></div>
         <div className="book-shelf-changer">
 
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={this.props.shelf} onChange={this.handleChange}>
             <option value="none" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
@@ -34,12 +31,10 @@ render() {
             <option value="none">None</option>
           </select>
 
-
         </div>
       </div>
       <div className="book-title">{this.props.title} </div>
       <div className="book-authors">{this.props.authors}</div>
-
     </div>
   )
 }
