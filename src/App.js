@@ -14,35 +14,24 @@ class BooksApp extends React.Component {
     // showSearchPage: false
     books: []
   }
-
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
-
   render() {
     return (
-
       <div className="list-books-content">
-
          <div>
+      
              <ListBook
              books ={this.state.books}/>
-
              <ListBook
              books ={this.state.books}/>
-
              <ListBook
              books ={this.state.books}/>
-
-
          </div>
-
-
        </div>
-
-
     )
   }
 }

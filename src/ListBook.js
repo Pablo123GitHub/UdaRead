@@ -12,17 +12,12 @@ class ListBook extends Component {
      super(props);
      this.state = {
 title: ""
-
      };
-
    }
 
   render() {
-
 const { books } = this.props
-
 let showingBooks = books
-
     return (
     <div>
 
@@ -31,18 +26,17 @@ let showingBooks = books
 <div className="bookshelf-books">
 <div>
 <ol className="books-grid">
-
-
-
     {showingBooks.map((book) => (
+
         <li key = {book.id}>
+{console.log({book})}
         <Book
           title = {book.title}
           authors = {book.authors}
           imageBackground = {book.imageLinks.smallThumbnail}
-
+          shelf = {book.shelf}
         />
-        </li>
+    </li>
 
     ))}
 
