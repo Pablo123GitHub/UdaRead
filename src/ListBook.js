@@ -11,7 +11,7 @@ class ListBook extends Component {
   constructor(props){
      super(props);
      this.state = {
-shelf: "what"
+shelf: ""
      };
    }
 
@@ -20,13 +20,17 @@ const { books } = this.props
 
 const {shelf} = this.state
 
-let  showingBooks = books.filter((book) => book
+
+
+let  showingBooks = books.filter((book) =>
+this.props.shelf == book.shelf
 )
+
     return (
     <div>
 
     <div className="bookshelf">
-      <h2 className="bookshelf-title">{this.props.shelf}</h2>
+      <h2 className="bookshelf-title">{this.props.shelfName}</h2>
 <div className="bookshelf-books">
 <div>
 <ol className="books-grid">

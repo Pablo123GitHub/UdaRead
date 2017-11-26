@@ -26,15 +26,18 @@ class BooksApp extends React.Component {
 
              <ListBook
              books ={this.state.books}
-             shelf = "Currently Reading"
+             shelf = "currentlyReading"
+              shelfName = "Currently Reading"
              />
              <ListBook
              books ={this.state.books}
-             shelf = "Want to Read"
+             shelf = "wantToRead"
+              shelfName = "Want to Read"
              />
              <ListBook
              books ={this.state.books}
-             shelf = "Read"
+             shelf = "read"
+             shelfName = "Read"
              />
          </div>
        </div>
