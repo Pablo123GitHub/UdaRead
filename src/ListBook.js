@@ -15,12 +15,18 @@ shelf: ""
      };
    }
 
+
+onUpdateBookApp = ( book, e) => {
+  console.log(e)
+  console.log(book)
+  console.log(this.props)
+    this.props.onUpdateBook(book, e)
+  }
+
   render() {
 const { books } = this.props
 
-const {shelf} = this.state
-
-
+const {shelf} = this.props
 
 let  showingBooks = books.filter((book) =>
 this.props.shelf == book.shelf
@@ -40,6 +46,9 @@ this.props.shelf == book.shelf
           title = {book.title}
           authors = {book.authors}
           imageBackground = {book.imageLinks.smallThumbnail}
+          onUpdateBook = {(book, newShelf) =>
+              this.onUpdateBookApp(book, newShelf)
+            }
         />
     </li>
 

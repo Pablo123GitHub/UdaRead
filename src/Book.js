@@ -7,23 +7,33 @@ import * as BooksAPI from './BooksAPI'
 
 class Book extends React.Component {
     constructor(props) {
+
       super(props);
-          this.handleChange = this.handleChange.bind(this);
+      this.state = {
+            shelf: ""
+          }
+            this.changeShelf = this.changeShelf.bind(this);
     }
 
-    handleChange(event){
-      this.setState({shelf: event.target.value});
+    changeShelf = ( book, e) => {
 
+      this.props.onUpdateBook(book, e.target.value)
+         this.setState({shelf: e.target.value})
+console.log("what", book)
     }
+
+
 
 render() {
   return (
     <div className="book">
+
       <div className="book-top">
         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageBackground})` }}></div>
         <div className="book-shelf-changer">
+          <select value={this.state.shelf} onChange={(e) => this.changeShelf(this.props, e)}
+          >
 
-          <select value={this.props.shelf} onChange={this.handleChange}>
             <option value="none" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
