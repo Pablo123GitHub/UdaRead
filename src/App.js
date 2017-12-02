@@ -2,6 +2,8 @@
   import * as BooksAPI from './BooksAPI'
   import './App.css'
   import ListBook from './ListBook'
+  import SearchBooks from './SearchBooks'
+  import {BrowserRouter, Route} from 'react-router-dom'
 
   class BooksApp extends React.Component {
     state = {
@@ -32,37 +34,44 @@
 
     render() {
       return (
-        <div className="list-books-content">
-           <div>
 
-               <ListBook
-               books ={this.state.books}
-               shelf = "currentlyReading"
-               shelfName = "Currently Reading"
+        <div className="list-books-content">
+        <Route exact path="/"  render={()=> (
+          <div>
+
+              <ListBook
+              books ={this.state.books}
+              shelf = "currentlyReading"
+              shelfName = "Currently Reading"
+              onUpdateBook ={(book, newShelf) =>
+               this.updateBook(book, newShelf)
+             }
+              />
+              <ListBook
+              books ={this.state.books}
+              shelf = "wantToRead"
+               shelfName = "Want to Read"
                onUpdateBook ={(book, newShelf) =>
                 this.updateBook(book, newShelf)
-              }
-               />
-               <ListBook
-               books ={this.state.books}
-               shelf = "wantToRead"
-                shelfName = "Want to Read"
-                onUpdateBook ={(book, newShelf) =>
-                 this.updateBook(book, newShelf)
-                }
-               />
-               <ListBook
-               books ={this.state.books}
-               shelf = "read"
-               shelfName = "Read"
-               onUpdateBook ={(book, newShelf) =>
-                this.updateBook(book, newShelf)
-              }
-               />
-           </div>
+               }
+              />
+              <ListBook
+              books ={this.state.books}
+              shelf = "read"
+              shelfName = "Read"
+              onUpdateBook ={(book, newShelf) =>
+               this.updateBook(book, newShelf)
+             }
+              />
+          </div>
+        )}
+          />
+
+        <Route path="/search" component = {SearchBooks}
+
+     />
          </div>
       )
-    }
-  }
+  }}
 
   export default BooksApp
