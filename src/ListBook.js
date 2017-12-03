@@ -22,11 +22,13 @@
     render() {
   const { books } = this.props
 
-  const {shelf} = this.props
+  const { shelf } = this.props
 
   let  showingBooks = books.filter((book) =>
   this.props.shelf == book.shelf
   )
+
+  console.log("inListBookRender", showingBooks)
 
       return (
         <div>
@@ -36,7 +38,9 @@
         <div>
             <ol className="books-grid">
             {showingBooks.map((book) => (
+
                 <li key = {book.id}>
+
                 <Book
                 title = {book.title}
                 authors = {book.authors}

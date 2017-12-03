@@ -9,24 +9,34 @@ class Book extends React.Component {
   constructor(props) {
 
     super(props);
-  
+
     this.changeShelf = this.changeShelf.bind(this);
+    this.setShelfNoneIfNull = this.setShelfNoneIfNull.bind(this);
   }
 
   changeShelf = ( book, e) => {
 
     this.props.onUpdateBook(book, e.target.value)
     this.setState({shelf: e.target.value})
+
+  }
+
+  setShelfNoneIfNull = ( book) => {
+    if (book.shelf == undefined) {
+      return "none"
+    }
+    return book.shelf
   }
 
   render() {
+    console.log("inBookRender", this.props)
     return (
       <div className="book">
 
       <div className="book-top">
       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageBackground})` }}></div>
       <div className="book-shelf-changer">
-      <select value={this.props.shelf} onChange={(e) => this.changeShelf(this.props, e)}
+      <select value={this.setShelfNoneIfNull(this.props)} onChange={(e) => this.changeShelf(this.props, e)}
       >
 
       <option value="none" disabled>Move to...</option>

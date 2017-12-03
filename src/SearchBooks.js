@@ -43,11 +43,13 @@ import ListBook from './ListBook'
       })
     }
 
+
     render() {
       const { query, searchResults } = this.state
 
       return (
     <div>
+
         <div className="search-books">
             <div className="search-books-bar">
                    <Link
@@ -68,8 +70,8 @@ import ListBook from './ListBook'
                      </div>
                    <div className="search-books-results">
                    <ListBook
-                   books ={this.state.searchResults}
-
+                   books ={searchResults}
+                  shelf = {undefined}
                    shelfName = "All Books"
                    onUpdateBook ={(book, newShelf) =>
                     this.updateBook(book, newShelf)
