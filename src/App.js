@@ -3,7 +3,7 @@
   import './App.css'
   import ListBook from './ListBook'
   import SearchBooks from './SearchBooks'
-  import {BrowserRouter, Route} from 'react-router-dom'
+  import {BrowserRouter, Route, Link} from 'react-router-dom'
 
   class BooksApp extends React.Component {
     state = {
@@ -31,6 +31,14 @@
         }))
       })
     }
+
+    search(book) {
+  BooksAPI.search(book).then(book => {
+    this.setState(state => ({
+      books: state.books.concat([ book ])
+    }))
+  })
+}
 
     render() {
       return (
@@ -67,9 +75,17 @@
         )}
           />
 
-        <Route path="/search" component = {SearchBooks}
+            <Route path="/search" component = {SearchBooks} />
 
-     />
+        <Link
+          to='/search'
+          className='search-book'
+        >
+        <div className="open-search">
+          <a >Add a book</a>
+        </div>
+        </Link>
+
          </div>
       )
   }}
