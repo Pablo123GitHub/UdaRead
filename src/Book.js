@@ -21,6 +21,8 @@ class Book extends React.Component {
 
   }
 
+
+
   setShelfNoneIfNull = ( book) => {
     if (book.shelf == undefined) {
       return "none"
@@ -50,6 +52,7 @@ class Book extends React.Component {
       </div>
       <div className="book-title">{this.props.title} </div>
       <div className="book-authors">{this.props.authors}</div>
+
       </div>
     )
   }

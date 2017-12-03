@@ -16,7 +16,6 @@ import ListBook from './ListBook'
       searchResults: []
     }
 
-
     updateQuery = (query) => {
       this.setState({query: query.trim() })
       if (query.length > 0) {
@@ -34,9 +33,10 @@ import ListBook from './ListBook'
     }
 
     updateBook(book, newShelf) {
-      let toUpdate = this.state.books.filter((each) => each.title == book.title)
-      BooksAPI.update(toUpdate[0], newShelf).then((books) => {
-        toUpdate[0].shelf = newShelf
+      console.log("book", book)
+      console.log("newShelf" , newShelf)
+      BooksAPI.update(this.state.searchResults[0], newShelf).then((books) => {
+        this.state.searchResults[0].shelf = newShelf
         this.setState(state => ({
           books: state.books
         }))
@@ -71,12 +71,13 @@ import ListBook from './ListBook'
                    <div className="search-books-results">
                    <ListBook
                    books ={searchResults}
-                  shelf = {undefined}
+
                    shelfName = "All Books"
                    onUpdateBook ={(book, newShelf) =>
                     this.updateBook(book, newShelf)
                   }
                    />
+
 
             </div>
         </div>
