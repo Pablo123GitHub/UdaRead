@@ -18,7 +18,7 @@ import Book from './Book'
                      to='/'
                      className='search-book'
                    >
-                      <a className="close-search" >Close</a>
+                      <div className="close-search" >Close</div>
                    </Link>
                      <div className="search-books-input-wrapper">
                        <input type="text" placeholder="Search by title or author"/>
