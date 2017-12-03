@@ -9,9 +9,7 @@ class Book extends React.Component {
   constructor(props) {
 
     super(props);
-    this.state = {
-      shelf: ""
-    }
+  
     this.changeShelf = this.changeShelf.bind(this);
   }
 

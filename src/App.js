@@ -25,13 +25,7 @@
       })
     }
 
-    search(book) {
-  BooksAPI.search(book).then(book => {
-    this.setState(state => ({
-      books: state.books.concat([ book ])
-    }))
-  })
-}
+
 
     render() {
       return (
@@ -64,6 +58,7 @@
                this.updateBook(book, newShelf)
              }
               />
+          
               <Link
                 to='/search'
                 className='search-book'
@@ -77,8 +72,6 @@
           />
 
             <Route path="/search" component = {SearchBooks} />
-
-
 
          </div>
       )
