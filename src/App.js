@@ -39,7 +39,6 @@
     render() {
       return (
 
-
         <div className="list-books-content">
 
           <Route
