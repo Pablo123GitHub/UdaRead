@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
@@ -9,6 +9,10 @@ class Book extends React.Component {
   constructor(props) {
 
     super(props);
+
+    this.state = {
+      shelf: this.props.shelf
+    }
 
     this.changeShelf = this.changeShelf.bind(this);
     this.setShelfNoneIfNull = this.setShelfNoneIfNull.bind(this);
@@ -21,8 +25,6 @@ class Book extends React.Component {
 
   }
 
-
-
   setShelfNoneIfNull = ( book) => {
     if (book.shelf == undefined) {
       return "none"
@@ -32,13 +34,14 @@ class Book extends React.Component {
 
   render() {
     console.log("inBookRender", this.props)
+
     return (
       <div className="book">
 
       <div className="book-top">
       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageBackground})` }}></div>
       <div className="book-shelf-changer">
-      <select value={this.setShelfNoneIfNull(this.props)} onChange={(e) => this.changeShelf(this.props, e)}
+      <select value= {this.props.shelf} onChange={(e) => this.changeShelf(this.props, e)}
       >
 
       <option value="none" disabled>Move to...</option>

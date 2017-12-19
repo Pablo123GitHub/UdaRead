@@ -6,7 +6,7 @@
   import * as BooksAPI from './BooksAPI'
   import Book from './Book'
 
-  class ListBook extends Component {
+  class ListBookSearch extends Component {
 
       constructor(props){
          super(props);
@@ -24,14 +24,6 @@
   const { books, shelf, filterBook } = this.props
 
 
-  let  showingBooks = books.filter((book) =>
-  this.props.shelf == book.shelf
-  )
-
-
-
-
-
       return (
         <div>
         <div className="bookshelf">
@@ -39,7 +31,7 @@
         <div className="bookshelf-books">
         <div>
             <ol className="books-grid">
-            {showingBooks.map((book) => (
+            {books.map((book) => (
 
                 <li key = {book.id}>
 
@@ -50,7 +42,8 @@
                 onUpdateBook = {(book, newShelf) =>
                   this.onUpdateBookApp(book, newShelf)
                 }
-                shelf = {shelf}
+                shelf = {this.props.shelf}
+
                 />
                 </li>
 
@@ -65,4 +58,4 @@
     }
   }
 
-  export default ListBook
+  export default ListBookSearch
