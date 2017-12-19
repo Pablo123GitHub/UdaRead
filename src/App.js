@@ -41,7 +41,7 @@
 
 
         <div className="list-books-content">
-          {console.log("APP COMPNT",  this.state.books)}
+
           <Route
             exact
             path="/"
