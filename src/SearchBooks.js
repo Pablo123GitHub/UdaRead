@@ -4,7 +4,7 @@ import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
-import ListBookSearch from './ListBookSearch'
+import ListBook from './ListBook'
 
   import {BrowserRouter, Link} from 'react-router-dom'
 
